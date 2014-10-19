@@ -6,5 +6,15 @@ end
 
 lib_dir_path = File.dirname(File.expand_path(__FILE__))
 Motion::Project::App.setup do |app|
-  app.files.unshift(Dir.glob(File.join(lib_dir_path, "project/**/*.rb")))
+  #TODO: Find better way to do this
+  # iOS
+  if app.class == "Motion::Project::IOSConfig"
+    app.files.unshift(Dir.glob(File.join(lib_dir_path, "project/**/*.rb")))
+  # Android
+  else
+    Dir.glob(File.join(File.dirname(__FILE__), 'android/*.rb')).each do |file|
+      app.files.unshift(file)
+    end
+  end
+
 end

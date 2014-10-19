@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-$:.unshift("/Library/RubyMotion/lib")
+$:.unshift("/Library/RubyMotionPre/lib")
 require 'motion/project/template/ios'
+# require 'motion/project/template/android'
 require './lib/motion-set'
 
 begin
